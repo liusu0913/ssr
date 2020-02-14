@@ -1,18 +1,12 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-
-    entry: './app.js',
-
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, '../dist'),
+        filename: '[name].bundle.js'
     },
-
     module: {
         rules: [
             {
@@ -38,12 +32,7 @@ module.exports = {
             }
         ]
     },
-
     plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        }),
-        new ExtractTextPlugin('styles.css')
+        new VueLoaderPlugin()
     ]
 };
