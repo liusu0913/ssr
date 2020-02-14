@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run dev",
+    "start": "npm run build && npm run server",
     "dev": "webpack-dev-server",
     "build": "webpack --config ./build/webpack.client.config.js",
     "server": "webpack --config ./build/webpack.server.config.js"

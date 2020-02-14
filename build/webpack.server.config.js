@@ -8,7 +8,7 @@ const path = require('path');
 module.exports = merge(baseConfig, {
     // 将 entry 指向应用程序的 server entry 文件
     entry: {
-        server : path.resolve(__dirname, '../entry_server.js'),
+        server : path.resolve(__dirname, '../main/entry_server.js'),
     },
     // 这允许 webpack 以 Node 适用方式(Node-appropriate fashion)处理动态导入(dynamic import)，
     // 并且还会在编译 Vue 组件时，
