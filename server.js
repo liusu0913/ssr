@@ -1,7 +1,7 @@
 const http = require('http');
 const server = http.createServer();
 const { createBundleRenderer } = require('vue-server-renderer');
-
+const path = require('path');
 const template = require('fs').readFileSync('./dist/index_server.html', 'utf-8');
 const serverBundle = require('./dist/vue-ssr-server-bundle.json');
 const clientManifest = require('./dist/vue-ssr-client-manifest.json');
@@ -19,6 +19,9 @@ server.on('request', (req, res) => {
         renderer.renderToString((err, html) => {
             res.end(html);
         });
+        // await renderer.renderToString().then((html) =>{
+        //     res.end(html);
+        // });
     }
 });
 
