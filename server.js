@@ -13,18 +13,19 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 server.on('request', (req, res) => {
     const url = req.url;
-    console.log(url);
-    if (url === '/') {
-        renderer.renderToString((err, html) => {
+    if (url.indexOf('.js') > -1) {
+        res.writeHead(200, {'Content-Type': 'application/x-javascript'});
+        res.end(require('fs').readFileSync(path.resolve(__dirname, `./dist${url}`)));
+    } else {
+        renderer.renderToString({
+            url
+        },(err, html) => {
             if (err) {
                 console.log(html, err);
             }
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.end(html);
         });
-    } else {
-        res.writeHead(200, {'Content-Type': 'application/x-javascript'});
-        res.end(require('fs').readFileSync(path.resolve(__dirname, `./dist${url}`)));
     }
 });
 

@@ -1,4 +1,5 @@
 import createApp from './app';
 
-const {app, App} = createApp();
+const {app} = createApp();
+
 app.$mount('#app');
