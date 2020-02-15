@@ -1,10 +1,10 @@
 <template>
-  <div>
+	<div id="app">
 		<router-link to="/nav">Goto Nav</router-link> 
 		<router-link to="/foo">Goto Foo</router-link> 
 		<bar></bar>
 		<router-view></router-view>
-  </div>
+	</div>
 </template>
 
 <script>
