@@ -40,8 +40,8 @@ module.exports = merge(baseConfig, {
     plugins: [
         new VueSSRServerPlugin(),
         new HtmlWebpackPlugin({
-            filename: 'index_server.html',
             template: path.resolve(__dirname, '../index_server.html'),
+            filename: 'index_server.html',
             inject: false
         })
     ]
