@@ -12,7 +12,10 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 server.on('request', (req, res) => {
     const url = req.url;
-    if (url === '/') {
+    if (url.indexOf('.js') > -1) {
+        res.writeHead(200, {'Content-Type': 'application/x-javascript'});
+        res.end(require('fs').readFileSync(path.resolve(__dirname, `./dist${url}`)));
+    } else {
         renderer.renderToString((err, html) => {
             res.end(html);
         });
