@@ -1,15 +1,11 @@
 import Vue from 'vue';
-import App from '../App.vue';
 import Router from 'vue-router';
-import Nav from '../components/Nav.vue';
+import Bar from '../components/Bar.vue';
 Vue.use(Router);
 function createRouter() {
     const routes = [{
-        path: '/',
-        component: App
-    },{
-        path: '/nav',
-        component: Nav
+        path: '/bar',
+        component: Bar
     }, {
         path: '/foo',
         component: () => import('../components/Foo.vue')

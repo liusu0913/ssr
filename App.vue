@@ -1,14 +1,14 @@
 <template>
 	<div id="app">
-		<router-link to="/nav">Goto Nav</router-link> 
+		<router-link to="/bar">Goto Bar</router-link> 
 		<router-link to="/foo">Goto Foo</router-link> 
-		<bar></bar>
+		<nav></nav>
 		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import Bar from './components/Bar.vue';
+import Nav from './components/Nav.vue';
 export default {
 	beforeCreate() {
 		console.log('App.vue beforeCreate');
@@ -27,7 +27,7 @@ export default {
 		console.log(this);
 	},
 	components: {
-		Bar
+		Nav
 	}
 }
 </script>
